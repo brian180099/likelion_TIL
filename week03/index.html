@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>아기사자 명단 대시보드</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="control-area">
+      <button type="button" id="toggleFormBtn" class="btn btn-primary">아기 사자 추가</button>
+      <button type="button" id="deleteLastBtn" class="btn">마지막 아기 사자 삭제</button>
+      <strong id="countText" class="count-text">총 0명</strong>
+    </section>
+
+    <section id="formPanel" class="form-panel is-hidden">
+      <form id="lionForm" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">이름</label>
+            <input id="name" name="name" type="text" placeholder="예: 김아기사자" />
+            <p class="error-message" data-error-for="name"></p>
+          </div>
+
+          <div class="field">
+            <label for="part">파트</label>
+            <select id="part" name="part">
+              <option value="Frontend">Frontend</option>
+              <option value="Backend">Backend</option>
+              <option value="Design">Design</option>
+            </select>
+            <p class="error-message" data-error-for="part"></p>
+          </div>
+
+          <div class="field full">
+            <label for="skills">관심 기술</label>
+            <input id="skills" name="skills" type="text" placeholder="예: HTML/CSS, JavaScript, React" />
+            <p class="error-message" data-error-for="skills"></p>
+          </div>
+
+          <div class="field full">
+            <label for="summary">한 줄 소개</label>
+            <input id="summary" name="summary" type="text" placeholder="예: JavaScript로 화면을 바꾸는 중입니다." />
+            <p class="error-message" data-error-for="summary"></p>
+          </div>
+
+          <div class="field full">
+            <label for="bio">자기소개</label>
+            <textarea id="bio" name="bio" rows="5" placeholder="자기소개를 입력하세요."></textarea>
+            <p class="error-message" data-error-for="bio"></p>
+          </div>
+
+          <div class="field">
+            <label for="email">이메일</label>
+            <input id="email" name="email" type="email" placeholder="lion@example.com" />
+            <p class="error-message" data-error-for="email"></p>
+          </div>
+
+          <div class="field">
+            <label for="phone">전화번호</label>
+            <input id="phone" name="phone" type="tel" placeholder="010-1234-5678" />
+            <p class="error-message" data-error-for="phone"></p>
+          </div>
+
+          <div class="field full">
+            <label for="website">웹사이트</label>
+            <input id="website" name="website" type="url" placeholder="https://example.com" />
+            <p class="error-message" data-error-for="website"></p>
+          </div>
+
+          <div class="field full">
+            <label for="message">한 마디</label>
+            <input id="message" name="message" type="text" placeholder="한 마디를 입력하세요." />
+            <p class="error-message" data-error-for="message"></p>
+          </div>
+        </div>
+
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-primary">추가하기</button>
+          <button type="button" id="cancelBtn" class="btn">취소</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="section-block">
+      <h2>아기 사자 자기소개 카드</h2>
+      <div id="summaryList" class="summary-grid"></div>
+    </section>
+
+    <section class="section-block">
+      <h2>상세 자기소개</h2>
+
+      <div id="detailList" class="detail-list">
+        <article 
+          class="detail-card seed-card"
+          data-id="lion-1"
+          data-name="김아기사자"
+          data-part="Frontend"
+          data-image="https://picsum.photos/seed/lion1/800/500"
+          data-summary="HTML과 CSS를 바탕으로 화면 구조를 연습하고 있습니다."
+          data-bio="프론트엔드 파트에서 웹페이지의 구조와 스타일을 배우고 있습니다. 이번 과제를 통해 JavaScript로 데이터를 추가하고 삭제하면서 화면이 동적으로 바뀌는 흐름을 익히고 있습니다."
+          data-email="kimlion@example.com"
+          data-phone="010-1111-1111"
+          data-website="https://kimlion.example.com"
+          data-skills="HTML/CSS, JavaScript, Responsive Web"
+          data-message="작게라도 직접 구현하면서 배우겠습니다."
+          data-mine="true">
+        </article>
+
+        <article 
+          class="detail-card seed-card"
+          data-id="lion-2"
+          data-name="이아기사자"
+          data-part="Frontend"
+          data-image="https://picsum.photos/seed/lion2/800/500"
+          data-summary="JavaScript 이벤트 처리에 관심이 있습니다."
+          data-bio="버튼 클릭, 폼 제출, 입력값 처리처럼 사용자가 화면에서 하는 행동이 코드와 어떻게 연결되는지 배우고 있습니다."
+          data-email="leelion@example.com"
+          data-phone="010-2222-2222"
+          data-website="https://leelion.example.com"
+          data-skills="JavaScript, DOM, Event"
+          data-message="화면이 바뀌는 원리를 정확히 이해하고 싶습니다."
+          data-mine="false">
+        </article>
+
+        <article 
+          class="detail-card seed-card"
+          data-id="lion-3"
+          data-name="박아기사자"
+          data-part="Backend"
+          data-image="https://picsum.photos/seed/lion3/800/500"
+          data-summary="데이터를 안정적으로 관리하는 데 관심이 있습니다."
+          data-bio="백엔드 파트에서 서버와 데이터 흐름을 배우고 있습니다. 사용자가 입력한 정보가 어떤 구조로 저장되고 전달되는지 이해하는 것을 목표로 하고 있습니다."
+          data-email="parklion@example.com"
+          data-phone="010-3333-3333"
+          data-website="https://parklion.example.com"
+          data-skills="Java, Spring, Database"
+          data-message="기본기를 놓치지 않고 차근차근 배우겠습니다."
+          data-mine="false">
+        </article>
+
+        <article 
+          class="detail-card seed-card"
+          data-id="lion-4"
+          data-name="최아기사자"
+          data-part="Design"
+          data-image="https://picsum.photos/seed/lion4/800/500"
+          data-summary="사용자가 보기 편한 화면을 고민합니다."
+          data-bio="디자인 파트에서 레이아웃, 색상, 여백의 중요성을 배우고 있습니다. 단순히 예쁜 화면보다 정보를 자연스럽게 이해할 수 있는 화면을 만들고 싶습니다."
+          data-email="choilion@example.com"
+          data-phone="010-4444-4444"
+          data-website="https://choilion.example.com"
+          data-skills="Figma, UI Design, Layout"
+          data-message="친절한 화면을 만드는 사람이 되고 싶습니다."
+          data-mine="false">
+        </article>
+
+        <article 
+          class="detail-card seed-card"
+          data-id="lion-5"
+          data-name="정아기사자"
+          data-part="Backend"
+          data-image="https://picsum.photos/seed/lion5/800/500"
+          data-summary="API와 데이터 구조를 배우고 있습니다."
+          data-bio="서버에서 데이터를 어떻게 정리하고 프론트엔드로 전달해야 하는지에 관심이 있습니다. 기능이 늘어나도 유지보수하기 쉬운 구조를 만들고 싶습니다."
+          data-email="junglion@example.com"
+          data-phone="010-5555-5555"
+          data-website="https://junglion.example.com"
+          data-skills="Node.js, REST API, JSON"
+          data-message="데이터 흐름을 정확히 이해하겠습니다."
+          data-mine="false">
+        </article>
+
+        <article 
+          class="detail-card seed-card"
+          data-id="lion-6"
+          data-name="한아기사자"
+          data-part="Design"
+          data-image="https://picsum.photos/seed/lion6/800/500"
+          data-summary="서비스의 분위기를 시각적으로 표현하고 싶습니다."
+          data-bio="디자인을 통해 사용자가 서비스를 더 쉽게 이해하도록 돕고 싶습니다. 이번 과제에서는 카드 형태의 정보 배치와 반응형 화면 구성을 중점적으로 살펴보고 있습니다."
+          data-email="hanlion@example.com"
+          data-phone="010-6666-6666"
+          data-website="https://hanlion.example.com"
+          data-skills="Typography, Color System, UX Writing"
+          data-message="보기 좋고 이해하기 쉬운 화면을 만들겠습니다."
+          data-mine="false">
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
