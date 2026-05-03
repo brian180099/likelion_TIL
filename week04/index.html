@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>아기 사자 대시보드</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="control-area">
+      <div class="row">
+        <button id="toggleFormBtn">아기 사자 추가</button>
+        <button id="deleteLastBtn">마지막 아기 사자 삭제</button>
+        <strong id="totalCount">총 0명</strong>
+      </div>
+
+      <div class="row">
+        <button id="addRandomOneBtn">랜덤 1명 추가</button>
+        <button id="addRandomFiveBtn">랜덤 5명 추가</button>
+        <button id="refreshAllBtn">전체 새로고침</button>
+        <strong id="statusText">준비 완료</strong>
+        <button id="retryBtn" class="hidden">재시도</button>
+      </div>
+
+      <div class="option-row">
+        <label>
+          파트
+          <select id="partFilter">
+            <option value="all">전체</option>
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Design">Design</option>
+          </select>
+        </label>
+
+        <label>
+          정렬
+          <select id="sortSelect">
+            <option value="newest">최신추가순</option>
+            <option value="name">이름순</option>
+          </select>
+        </label>
+
+        <label>
+          검색
+          <input id="searchInput" type="text" placeholder="이름으로 검색" />
+        </label>
+      </div>
+    </section>
+
+    <section id="formArea" class="form-area hidden">
+      <div class="form-grid">
+        <label>
+          이름
+          <input id="nameInput" type="text" />
+        </label>
+
+        <label>
+          파트
+          <select id="partInput">
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Design">Design</option>
+          </select>
+        </label>
+
+        <label>
+          관심 기술
+          <input id="skillsInput" type="text" placeholder="JavaScript, React, HTML/CSS" />
+        </label>
+
+        <label>
+          한 줄 소개
+          <input id="summaryInput" type="text" />
+        </label>
+
+        <label class="full">
+          자기소개
+          <textarea id="introInput"></textarea>
+        </label>
+
+        <label>
+          Email
+          <input id="emailInput" type="email" />
+        </label>
+
+        <label>
+          Phone
+          <input id="phoneInput" type="text" />
+        </label>
+
+        <label class="full">
+          Website
+          <input id="websiteInput" type="text" />
+        </label>
+
+        <label class="full">
+          한 마디
+          <input id="messageInput" type="text" />
+        </label>
+      </div>
+
+      <div class="form-buttons">
+        <button id="fillRandomBtn">랜덤 값 채우기</button>
+        <button id="submitBtn">추가하기</button>
+        <button id="cancelBtn">취소</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>아기 사자 요약 카드</h2>
+
+      <div id="cardGrid" class="card-grid">
+        <article class="lion-card initial" data-fixed="true">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="김아기사자" />
+          <span class="badge">React</span>
+          <h3>김아기사자</h3>
+          <p class="part">Frontend</p>
+          <p class="summary">구조적인 UI를 고민하는 프론트엔드 개발자입니다.</p>
+
+          <div class="detail-source">
+            <p data-skills>JavaScript, React, HTML/CSS</p>
+            <p data-intro>저는 사용자가 편하게 볼 수 있는 화면을 만드는 데 관심이 많습니다. 이번 미션에서는 데이터를 기준으로 UI가 갱신되는 흐름을 연습하고 있습니다.</p>
+            <p data-email>kim.lion@example.com</p>
+            <p data-phone>010-1111-2222</p>
+            <p data-website>https://example.com/kimlion</p>
+            <p data-message>데이터가 바뀌면 UI도 바뀐다!</p>
+          </div>
+        </article>
+
+        <article class="lion-card initial">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="박아기사자" />
+          <span class="badge">Node.js</span>
+          <h3>박아기사자</h3>
+          <p class="part">Backend</p>
+          <p class="summary">안정적인 서버 구조에 관심이 많습니다.</p>
+
+          <div class="detail-source">
+            <p data-skills>Node.js, Express, API</p>
+            <p data-intro>서버에서 데이터를 받아오고, 필요한 형태로 변환해 화면에 전달하는 과정에 관심이 있습니다.</p>
+            <p data-email>park.lion@example.com</p>
+            <p data-phone>010-2222-3333</p>
+            <p data-website>https://example.com/parklion</p>
+            <p data-message>좋은 API는 좋은 화면을 만든다!</p>
+          </div>
+        </article>
+
+        <article class="lion-card initial">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="이아기사자" />
+          <span class="badge">Figma</span>
+          <h3>이아기사자</h3>
+          <p class="part">Design</p>
+          <p class="summary">사용자 관점에서 디자인을 고민합니다.</p>
+
+          <div class="detail-source">
+            <p data-skills>Figma, Design System, UX</p>
+            <p data-intro>화면의 정보 구조와 사용자가 느끼는 흐름을 중요하게 생각합니다.</p>
+            <p data-email>lee.lion@example.com</p>
+            <p data-phone>010-3333-4444</p>
+            <p data-website>https://example.com/leelion</p>
+            <p data-message>보기 좋은 화면보다 이해하기 쉬운 화면!</p>
+          </div>
+        </article>
+      </div>
+
+      <p id="emptyText" class="empty hidden">
+        표시할 아기 사자가 없습니다. 필터/검색 조건을 확인해 주세요.
+      </p>
+    </section>
+
+    <section>
+      <h2>상세 자기소개</h2>
+      <div id="detailList" class="detail-list"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
