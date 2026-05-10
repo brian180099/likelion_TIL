@@ -1,16 +1,35 @@
-# React + Vite
+# 📘 Today I Learned
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 1. 오늘 배운 내용
+- 기존 HTML/CSS로 만들었던 아기 사자 자기소개 대시보드 UI를 React로 재구성했다.
+- 하나의 긴 HTML 구조를 그대로 작성하는 대신, 화면을 역할별 컴포넌트로 나누는 방식을 배웠다.
+- `App.jsx`, `ControlPanel`, `ProfileCard`, `DetailCard`처럼 각 컴포넌트가 맡는 역할을 구분해서 작성했다.
+- `lions.js`에 mock 데이터를 만들고, 그 데이터를 기준으로 요약 카드와 상세 정보를 화면에 렌더링했다.
+- 부모 컴포넌트에서 자식 컴포넌트로 데이터를 전달할 때 `props`를 사용한다는 것을 배웠다.
+- JSX 문법을 사용하면서 HTML과 비슷하지만 `class` 대신 `className`을 써야 하고, JavaScript 값을 `{}` 안에 넣어야 한다는 점을 익혔다.
+- 이번 과제에서는 버튼 클릭, 검색, 정렬 같은 기능은 구현하지 않고 UI 렌더링에 집중했다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 2. 핵심 정리 (내 언어로)
+- React는 화면을 작은 부품처럼 나누어 만드는 방식이다.
+- 예전에는 HTML 안에 카드 내용을 하나하나 직접 작성했다면, React에서는 데이터를 배열로 정리하고 `map()`을 사용해서 반복되는 카드를 자동으로 그릴 수 있다.
+- 이번 과제에서 아기 사자 정보는 `lions.js`에 한 번만 정리했다. 그리고 이 데이터를 `App.jsx`에서 불러온 뒤 `ProfileCardList`와 `DetailList`에 전달했다.
+- 요약 카드와 상세 카드가 같은 데이터를 사용하기 때문에, 이름이나 파트 같은 값이 바뀌면 두 영역 모두 일관되게 바뀔 수 있다.
+- `props`는 부모 컴포넌트가 자식 컴포넌트에게 필요한 값을 넘겨주는 통로라고 이해했다.
+- 컴포넌트를 나누면 코드가 길어져도 각 파일의 역할이 분명해져서 수정할 위치를 찾기 쉬워진다.
+- 이번 과제를 하면서 React가 단순히 문법이 다른 것이 아니라, 화면을 관리하는 사고방식 자체가 다르다는 것을 느꼈다.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 3. 결과 이미지(스크린샷)
 
-## Expanding the ESLint configuration
+<img width="1917" height="816" alt="image" src="https://github.com/user-attachments/assets/556fb0c8-6b96-430e-b0c8-6d5e7359fc05" />
+<img width="947" height="770" alt="image" src="https://github.com/user-attachments/assets/80ad98de-f56a-4a4a-b422-6b1fb9aca517" />
+<img width="650" height="843" alt="image" src="https://github.com/user-attachments/assets/14cffd38-330f-4437-9756-c7bda47f4383" />
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+
+### 4. 느낀 점
+이번 과제는 React를 처음 제대로 사용해보는 과정이라 처음에는 폴더 구조부터 조금 헷갈렸다. 특히 `App.jsx`, `main.jsx`, `components`, `data` 폴더가 각각 어떤 역할을 하는지 바로 감이 오지는 않았다. 하지만 직접 파일을 나누고 데이터를 전달해보면서 React가 왜 컴포넌트 단위로 화면을 구성하는지 조금씩 이해할 수 있었다. 가장 인상 깊었던 부분은 같은 아기 사자 데이터가 요약 카드와 상세 정보 영역에 함께 사용된다는 점이었다. HTML로 직접 작성했다면 같은 내용을 여러 번 반복해서 써야 했을 텐데, React에서는 데이터를 한 곳에서 관리하고 필요한 컴포넌트에 넘겨줄 수 있어서 훨씬 체계적이라고 느꼈다. 아직 이벤트 처리나 상태 관리까지 구현하지는 않았지만, 이번 과제를 통해 React의 기본 흐름인 데이터 기반 렌더링, props 전달, 컴포넌트 분리의 개념을 익힐 수 있었다. 다음에는 버튼을 눌렀을 때 실제로 데이터가 추가되거나 삭제되는 기능까지 구현해보면서 React의 동작 방식을 더 깊게 이해하고 싶다.
