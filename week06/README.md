@@ -15,7 +15,9 @@
 - `useLions`라는 Custom Hook에 명단 로직을 모아두니 컴포넌트는 props를 받아 화면을 그리는 역할에 집중할 수 있었다.
 
 ### 3. 결과 이미지(스크린샷)
-![아기 사자 대시보드 실행 화면](./result.png)
+<img width="1447" height="623" alt="image" src="https://github.com/user-attachments/assets/59441fdc-974b-4ac5-b9bf-a688f83c49d4" />
+<img width="1512" height="895" alt="image" src="https://github.com/user-attachments/assets/cfe891ec-be20-43fb-96c7-61d3dd8b50c9" />
+
 
 ### 4. 느낀 점
 - 4주차에는 DOM을 직접 찾아서 붙이고 지우는 방식이라 코드가 길어졌는데, React에서는 상태만 바꾸면 화면이 같이 바뀌어서 흐름이 더 명확했다.
