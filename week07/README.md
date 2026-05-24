@@ -1,16 +1,24 @@
-# React + Vite
+# 📘 Today I Learned
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 1. 오늘 배운 내용
+- React Router를 사용해서 목록 페이지와 상세 페이지를 분리하는 방법을 배웠다.
+- `/` 경로에서는 아기사자 목록을 보여주고, `/lions/:id` 경로에서는 특정 아기사자의 상세 프로필을 보여주도록 구현했다.
+- `useParams`를 사용해 URL 경로에 들어 있는 id 값을 읽고, 해당 id에 맞는 데이터를 찾아 화면에 표시했다.
+- `useSearchParams`를 사용해 필터, 정렬, 검색어 상태를 URL 쿼리 파라미터와 연결했다.
+- SPA에서는 URL이 바뀌어도 페이지 전체가 새로고침되지 않고 필요한 컴포넌트만 바뀐다는 것을 확인했다.
 
-Currently, two official plugins are available:
+### 2. 핵심 정리 (내 언어로)
+- React Router는 주소에 따라 보여줄 컴포넌트를 바꿔주는 도구이다.
+- 목록 페이지와 상세 페이지를 나누면 한 화면에 모든 정보가 몰리지 않아서 구조가 더 깔끔해진다.
+- `/lions/3`처럼 URL에 id를 넣으면, 그 id를 기준으로 특정 데이터를 찾아 상세 페이지를 만들 수 있다.
+- 검색어나 필터 상태를 컴포넌트 내부 state로만 관리하면 새로고침할 때 사라지지만, URL 쿼리 파라미터로 관리하면 새로고침하거나 링크를 공유해도 같은 화면을 다시 볼 수 있다.
+- 여러 페이지에서 같은 명단 데이터를 사용해야 하므로, 데이터 상태는 목록 페이지 안이 아니라 공통 부모 컴포넌트인 `App.jsx`에 두는 것이 좋다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 3. 결과 이미지(스크린샷)
+<img width="1917" height="972" alt="image" src="https://github.com/user-attachments/assets/1fd6b659-ad40-4d8c-b456-1afcfaf56700" />
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 4. 느낀 점
+처음에는 페이지를 나누면 코드가 더 복잡해질 것 같았지만, 목록과 상세 역할이 분리되니까 오히려 구조가 더 이해하기 쉬웠다.
+URL에 화면 상태가 들어가면 사용자가 현재 보고 있는 화면을 다시 열거나 공유할 수 있어서 실제 서비스에서 왜 중요한지 알게 되었다.
+React Router의 `useParams`, `useSearchParams`를 직접 써보면서 URL도 상태 관리의 한 방식이 될 수 있다는 점이 인상 깊었다.
