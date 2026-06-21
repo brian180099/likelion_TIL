@@ -1,0 +1,6 @@
+{
+  "installCommand": "cd week10 && yarn install --frozen-lockfile",
+  "buildCommand": "cd week10 && yarn build",
+  "outputDirectory": "week10/dist",
+  "framework": "vite"
+}

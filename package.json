@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "scripts": {
+    "install": "cd week10 && yarn install --frozen-lockfile",
+    "build": "cd week10 && yarn build"
+  }
+}
