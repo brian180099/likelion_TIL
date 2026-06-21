@@ -14,7 +14,11 @@
 - 실제 서비스처럼 보이려면 기능뿐만 아니라 오류 안내, 빈 화면 안내, 모바일 화면까지 점검해야 한다.
 
 ### 3. 배포 URL
-- https://likelion-week10.vercel.app
+GitHub URL:
+https://github.com/brian180099/likelion_TIL/tree/main/week10
+
+Vercel 배포 URL:
+https://likelion-week10-beta.vercel.app
 
 ### 4. 느낀 점
 - 지금까지 만든 아기사자 대시보드를 단순한 과제 코드가 아니라 실제 서비스처럼 점검해 보는 과정이 의미 있었다.
